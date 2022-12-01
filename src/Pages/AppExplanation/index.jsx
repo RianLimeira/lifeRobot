@@ -1,13 +1,30 @@
 import React from "react";
-import { ScrollView, View, Text, StyleSheet } from "react-native";
+import {
+    View,
+    Text,
+    StyleSheet,
+    ScrollView,
+    handleNavHome,
+    handleSetShowHome,
+  } from "react-native";
 import DefaltButton from "../../Components/Common/DefaultButton";
 import ExplanationCard from "../../Components/Explanation/ExplanationCard";
 
+import { useNavigation } from "@react-navigation/native";
+
 
 export default function AppExplanation(){
-    //vai para Home com as explicações
+    const navigation = useNavigation();
+
+    //Teste local para verificar botão
     function handleSetShowHome(){
-        console.log("Botão proxima pagina clicado")
+        console.log("Funcionou o botao");
+        
+    }
+
+    //vai para Home com as explicações
+    function handleNavHome(){
+        navigation.navigate("Home");
     }
 
     //retorna os elementos como HTML estilizados
@@ -30,7 +47,7 @@ export default function AppExplanation(){
                     <DefaltButton
                         //aqui dentro vem as configurações do botão pardrão(Comum)
                         buttonText={"Continuar"}
-                        handlePress={handleSetShowHome}
+                        handlePress={handleNavHome}
                         widht={250}
                         height={50}
                     />
