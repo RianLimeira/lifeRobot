@@ -1,7 +1,7 @@
 import React from "react";
 import { ScrollView, View, Text, StyleSheet } from "react-native";
-import DefaltButton from "../../../Components/Common/DefaultButton";
-import ExplanationCard from "../../../Components/Explanation/ExplanationCard";
+import DefaltButton from "../../Components/Common/DefaultButton";
+import ExplanationCard from "../../Components/Explanation/ExplanationCard";
 
 
 export default function AppExplanation(){

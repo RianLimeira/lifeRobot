@@ -5,9 +5,10 @@ import LifeStatus from "../../Components/Common/LifeStatus";
 import { useNavigation } from "@react-navigation/native";
 
 export default function Start(){
+    const navigation = useNavigation();
 
     const handleNavAppExplanation = () => {
-        console.log("testando o clique");
+        navigation.navigate("AppExplanation");
     }
 
     return(

@@ -1,6 +1,6 @@
 import React from "react";
 import {View, Text, StyleSheet, Image} from "react-native"
-//Card com as infromações da tela Home
+//Card com as infromações da tela
 export default function ExplanationCard(){
     return(
         <View style={styles.container}>
