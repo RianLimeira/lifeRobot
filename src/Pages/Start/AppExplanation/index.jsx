@@ -1,5 +1,8 @@
 import React from "react";
-import { ScrollView, View, Text, StyleSheet } from "react-native-gesture-handler";
+import { ScrollView, View, Text, StyleSheet } from "react-native";
+import DefaltButton from "../../../Components/Common/DefaultButton";
+import ExplanationCard from "../../../Components/Explanation/ExplanationCard";
+
 
 export default function AppExplanation(){
     //vai para Home com as explicações
@@ -15,6 +18,7 @@ export default function AppExplanation(){
                     <Text style={styles.title}>Antes deixe {"\n"}
                     eu te explicar...
                     </Text>
+                    <ExplanationCard />
                     <Text style={styles.descriptionCta}>
                         Pronto(a) para subir de nível na vida ?
                     </Text>
@@ -23,7 +27,7 @@ export default function AppExplanation(){
                     hábitos de forma individual
                     </Text>
                     
-                    <DefaultButton
+                    <DefaltButton
                         //aqui dentro vem as configurações do botão pardrão(Comum)
                         buttonText={"Continuar"}
                         handlePress={handleSetShowHome}
