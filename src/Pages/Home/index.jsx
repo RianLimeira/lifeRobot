@@ -10,8 +10,8 @@ import EditHabit from "../../Components/Home/EditHabit";
 export default function Home() {
   //navegação de paginas
   const navigation = useNavigation();
-  //controle da bara de status
-  const [mindHabit, setMindHabit] = useState("Habito Preenchido");
+  //controle da bara de status e botões (adicionar/editar)
+  const [mindHabit, setMindHabit] = useState();
   const [moneyHabit, setMoneyHabit] = useState();
   const [bodyHabit, setBodyHabit] = useState();
   const [funHabit, setFunHabit] = useState();
@@ -31,20 +31,47 @@ export default function Home() {
 
           {mindHabit ? (
             <EditHabit
-              habit={"Habito 01"}
-              frequency={"Todo dia de 10:30"}
-              habitArea={"Mente"}
+              habit={mindHabit?.habitName}
+              frequency={`${mindHabit?.habitTime} - ${mindHabit?.habitFrequency}`}
+              habitArea={mindHabit?.habitArea}
               checkColor="#90B7F3"
             />
           ) : (
             <CreateHabit habitArea="Mente" borderColor="#90B7F3" />
           )}
 
-          <CreateHabit habitArea="Financeiro" borderColor="#85bb65" />
+          {moneyHabit ? (
+            <EditHabit
+              habit={moneyHabit?.habitName}
+              frequency={`${moneyHabit?.habitTime} - ${moneyHabit?.habitFrequency}`}
+              habitArea={moneyHabit?.habitArea}
+              checkColor="#85bb65"
+            />
+          ) : (
+            <CreateHabit habitArea="Financeiro" borderColor="#85bb65" />
+          )}
 
-          <CreateHabit habitArea="Corpo" borderColor="#ff0044" />
+          {bodyHabit ? (
+            <EditHabit
+              habit={bodyHabit?.habitName}
+              frequency={`${bodyHabit?.habitTime} - ${bodyHabit?.habitFrequency}`}
+              habitArea={bodyHabit?.habitArea}
+              checkColor="#ff0044"
+            />
+          ) : (
+            <CreateHabit habitArea="Corpo" borderColor="#ff0044" />
+          )}
 
-          <CreateHabit habitArea="Humor" borderColor="#FE7F23" />
+          {funHabit ? (
+            <EditHabit
+              habit={funHabit?.habitName}
+              frequency={`${funHabit?.habitTime} - ${funHabit?.habitFrequency}`}
+              habitArea={funHabit?.habitArea}
+              checkColor="#FE7F23"
+            />
+          ) : (
+            <CreateHabit habitArea="Humor" borderColor="#FE7F23" />
+          )}
         </View>
 
         <Text
