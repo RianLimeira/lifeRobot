@@ -5,12 +5,13 @@ import { View, Text, StyleSheet, ScrollView } from "react-native";
 import LifeStatus from "../../Components/Common/LifeStatus";
 import StatusBar from "../../Components/Home/StatusBar";
 import CreateHabit from "../../Components/Home/CreateHabit";
+import EditHabit from "../../Components/Home/EditHabit";
 
 export default function Home() {
   //navegação de paginas
   const navigation = useNavigation();
   //controle da bara de status
-  const [mindHabit, setMindHabit] = useState();
+  const [mindHabit, setMindHabit] = useState("Habito Preenchido");
   const [moneyHabit, setMoneyHabit] = useState();
   const [bodyHabit, setBodyHabit] = useState();
   const [funHabit, setFunHabit] = useState();
@@ -27,7 +28,23 @@ export default function Home() {
 
           <LifeStatus />
           <StatusBar />
-          <CreateHabit habitArea="Mente" borderColor="#90B7F3" />
+
+          {mindHabit ? (
+            <EditHabit
+              habit={"Habito 01"}
+              frequency={"Todo dia de 10:30"}
+              habitArea={"Mente"}
+              checkColor="#90B7F3"
+            />
+          ) : (
+            <CreateHabit habitArea="Mente" borderColor="#90B7F3" />
+          )}
+
+          <CreateHabit habitArea="Financeiro" borderColor="#85bb65" />
+
+          <CreateHabit habitArea="Corpo" borderColor="#ff0044" />
+
+          <CreateHabit habitArea="Humor" borderColor="#FE7F23" />
         </View>
 
         <Text
