@@ -1,11 +1,19 @@
+import React, { useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 
 import LifeStatus from "../../Components/Common/LifeStatus";
 import StatusBar from "../../Components/Home/StatusBar";
+import CreateHabit from "../../Components/Home/CreateHabit";
 
 export default function Home() {
+  //navegação de paginas
   const navigation = useNavigation();
+  //controle da bara de status
+  const [mindHabit, setMindHabit] = useState();
+  const [moneyHabit, setMoneyHabit] = useState();
+  const [bodyHabit, setBodyHabit] = useState();
+  const [funHabit, setFunHabit] = useState();
 
   function handleNavExplanation() {
     navigation.navigate("AppExplanation");
@@ -19,6 +27,7 @@ export default function Home() {
 
           <LifeStatus />
           <StatusBar />
+          <CreateHabit habitArea="Mente" borderColor="#90B7F3" />
         </View>
 
         <Text
